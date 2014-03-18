@@ -1,10 +1,15 @@
 " WindowSwap!
 
+let g:markedWinNum = 0
 function! WindowSwap#MarkWindowSwap()
     let g:markedWinNum = winnr()
 endfunction
 
 function! WindowSwap#DoWindowSwap()
+    if g:markedWinNum == 0
+       echom "WindowSwap: No window marked to swap! Mark a window first."
+       return
+    endif
     "Mark destination
     let curNum = winnr()
     let curBuf = bufnr( "%" )
@@ -17,5 +22,6 @@ function! WindowSwap#DoWindowSwap()
     exe curNum . "wincmd w"
     "Hide and open so that we aren't prompted and keep history
     exe 'hide buf' markedBuf
+    let g:markedWinNum = 0
 endfunction
 
