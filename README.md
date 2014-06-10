@@ -8,11 +8,19 @@ Vim's window movement commands work fine when you only have a few splits open or
 
 When I was just getting started with Vim, [I asked about this problem on StackOverflow][1] and I've received a handful of responses over the years. Almost a year after after I asked, [sgriffin came through with a solution][2]. Now that I'm a little less of a newbie, I've put his idea in a handy plugin.
 
+HowTo
+---------------
+1. Navigate to the window you'd like to move
+2. Press `<leader>ww`
+3. Navigate to the window you'd like to swap with
+4. Press `<leader>ww` again
+
 Key Bindings
 ----------------
 Defaults:
-* [y]ank a [w]indow with <leader>yw (for me that's [,yw])
-* [p]aste that [w]indow with <leader>pw.
+* **Easy Mode**: Yank and paste a window with `<leader>ww` (for me that's `,ww`)
+* [y]ank a [w]indow with `<leader>yw`
+* [p]aste that [w]indow with `<leader>pw`.
 
 Customize the commands to your liking by dropping this in your `.vimrc` and changing the mappings:
 
@@ -20,6 +28,7 @@ Customize the commands to your liking by dropping this in your `.vimrc` and chan
 let g:windowswap_map_keys = 0 "prevent default bindings
 nnoremap <silent> <leader>yw :call WindowSwap#MarkWindowSwap()<CR>
 nnoremap <silent> <leader>pw :call WindowSwap#DoWindowSwap()<CR>
+nnoremap <silent> <leader>ww :call WindowSwap#EasyWindowSwap()<CR>
 ```
 Installation
 ------------

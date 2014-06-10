@@ -25,3 +25,11 @@ function! WindowSwap#DoWindowSwap()
     let g:markedWinNum = 0
 endfunction
 
+function! WindowSwap#EasyWindowSwap()
+    if g:markedWinNum == 0
+       call WindowSwap#MarkWindowSwap()
+    else
+       call WindowSwap#DoWindowSwap()
+    endif
+endfunction
+
