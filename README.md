@@ -34,7 +34,7 @@ Installation
 ------------
 
 This plugin follows the standard runtime path structure, and as such it can be installed with a variety of plugin managers:
-*  [Vundle][13] - `Bundle 'wesQ3/vim-windowswap'`
+*  [Vundle][13] - `Plugin 'wesQ3/vim-windowswap'`
 *  [Pathogen][11] - `git clone https://github.com/wesQ3/vim-windowswap ~/.vim/bundle/vim-windowswap`
 *  [NeoBundle][12] - `NeoBundle 'wesQ3/vim-windowswap'`
 *  [VAM][22] - `call vam#ActivateAddons([ 'wesQ3/vim-windowswap' ])`
