@@ -8,3 +8,4 @@ if g:windowswap_map_keys
    nnoremap <silent> <leader>ww :call WindowSwap#EasyWindowSwap()<CR>
 endif
 
+let g:loaded_windowswap = 1
