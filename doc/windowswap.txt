@@ -1,0 +1,70 @@
+*windowswap.txt*              For Vim version 7.3              *windowswap*
+
+                              WINDOWSWAP MANUAL
+
+1. About WindowSwap                                |windowswap-about|
+2. Quick Start                                     |windowswap-quickstart|
+3. Key Mappings and Functions                      |windowswap-keymappings|
+                                                   |windowswap-functions|
+4. Options                                         |windowswap-options|
+
+=============================================================================
+1. ABOUT WINDOWSWAP ~
+                                                             *windowswap-about*
+
+WindowSwap helps you swap your buffers between existing split windows without
+affecting your current split layout.
+
+Vim's window movement commands work fine when you only have a few splits open
+or want to push a window over to an edge. But what happens when you have a
+complicated layout and you just want to swap a couple arbitrary windows? That
+is where WindowSwap can help out.
+
+My thanks to `sgriffin` on stackoverflow.com who helped me out when I was just
+a vim newbie in need of some window-shuffle incantations. His anwser formed
+the core of WindowSwap (and remains so, currently). Give the man your upvote,
+folks. The SO question where this little plugin started is here:
+
+http://stackoverflow.com/q/2586984/77782
+
+=============================================================================
+2. QUICK START ~
+                                                        *windowswap-quickstart*
+
+If all you need to do is swap some windows around, usage is pretty simple:
+
+1. Navigate to the window you'd like to move
+2. Press *<leader>ww* to mark that window for a future swap
+3. Navigate to the window you'd like to swap with
+4. Press *<leader>ww* again to swap the marked window with the current one
+
+That's it!
+
+=============================================================================
+3. KEY MAPPINGS ~
+                                  *windowswap-keymappings* *windowswap-functions*
+
+First of all, you can prevent these default bindings by setting
+*g:windowswap_map_keys* to `0` in your `.vimrc`.
+
+*WindowSwap#EasyWindowSwap*                           *<leader>ww*
+Mark current window if none is marked, swap current window with marked window
+if mark is currently set. Clears marked window flag after swapping.
+
+*WindowSwap#MarkWindowSwap*                           *<leader>yw*
+Mark current window to be swapped. If the mark is already set to another
+window, update the mark to the new window.
+
+*WindowSwap#DoWindowSwap*                             *<leader>pw*
+Swap marked window with currently active window. If no mark is set, the user
+is chastised accordingly.
+
+=============================================================================
+4. OPTIONS ~
+                                                           *windowswap-options*
+
+*g:windowswap_map_keys*                               default: `1`
+Allow WindowSwap to map its default keys. Set to `0` to prevent any key
+mappings.
+
+ vim: set expandtab sts=2 ts=2 sw=2 tw=78 ft=help norl:
