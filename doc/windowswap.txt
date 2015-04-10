@@ -34,9 +34,9 @@ http://stackoverflow.com/q/2586984/77782
 If all you need to do is swap some windows around, usage is pretty simple:
 
 1. Navigate to the window you'd like to move
-2. Press *<leader>ww* to mark that window for a future swap
+2. Press `<leader>ww` to mark that window for a future swap
 3. Navigate to the window you'd like to swap with
-4. Press *<leader>ww* again to swap the marked window with the current one
+4. Press `<leader>ww` again to swap the marked window with the current one
 
 That's it!
 
@@ -45,17 +45,17 @@ That's it!
                                   *windowswap-keymappings* *windowswap-functions*
 
 First of all, you can prevent these default bindings by setting
-*g:windowswap_map_keys* to `0` in your `.vimrc`.
+`g:windowswap_map_keys` to `0` in your `.vimrc`.
 
-*WindowSwap#EasyWindowSwap*                           *<leader>ww*
+*WindowSwap#EasyWindowSwap*                           `<leader>ww`
 Mark current window if none is marked, swap current window with marked window
 if mark is currently set. Clears marked window flag after swapping.
 
-*WindowSwap#MarkWindowSwap*                           *<leader>yw*
+*WindowSwap#MarkWindowSwap*                           `<leader>yw`
 Mark current window to be swapped. If the mark is already set to another
 window, update the mark to the new window.
 
-*WindowSwap#DoWindowSwap*                             *<leader>pw*
+*WindowSwap#DoWindowSwap*                             `<leader>pw`
 Swap marked window with currently active window. If no mark is set, the user
 is chastised accordingly.
 
