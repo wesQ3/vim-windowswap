@@ -55,13 +55,19 @@ if mark is currently set. Clears marked window flag after swapping.
 Mark current window to be swapped. If the mark is already set to another
 window, update the mark to the new window.
 Note: This default mapping is deprecated. You'll have to put it in your .vimrc
-yourself if you want it to keep working in the future.
+yourself if you want it to keep working in the future:
+>
+ nnoremap <silent> <leader>yw :call WindowSwap#MarkWindowSwap()<CR>
+<
 
 *WindowSwap#DoWindowSwap*                             `<leader>pw`
 Swap marked window with currently active window. If no mark is set, the user
 is chastised accordingly.
 Note: This default mapping is deprecated. You'll have to put it in your .vimrc
-yourself if you want it to keep working in the future.
+yourself if you want it to keep working in the future:
+>
+ nnoremap <silent> <leader>pw :call WindowSwap#DoWindowSwap()<CR>
+<
 
 =============================================================================
 4. OPTIONS ~
@@ -70,5 +76,8 @@ yourself if you want it to keep working in the future.
 *g:windowswap_map_keys*                               default: `1`
 Allow WindowSwap to map its default keys. Set to `0` to prevent any key
 mappings.
+
+*g:windowswap_mapping_deprecation_notice*             default: `0`
+Allow deprecation notices upon using deprecated default bindings.
 
  vim: set expandtab sts=2 ts=2 sw=2 tw=78 ft=help norl:
