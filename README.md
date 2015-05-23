@@ -18,9 +18,13 @@ HowTo
 Key Bindings
 ----------------
 Defaults:
-* **Easy Mode**: Yank and paste a window with `<leader>ww` (for me that's `,ww`)
+* Yank and paste a window with `<leader>ww` (for me that's `,ww`)
+
+**Deprecated** defaults:
 * [y]ank a [w]indow with `<leader>yw`
 * [p]aste that [w]indow with `<leader>pw`.
+
+These mappings are deprecated. See below for instructions on how to keep them working once they are removed from the default list.
 
 Customize the commands to your liking by dropping this in your `.vimrc` and changing the mappings:
 

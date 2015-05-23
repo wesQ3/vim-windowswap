@@ -54,10 +54,14 @@ if mark is currently set. Clears marked window flag after swapping.
 *WindowSwap#MarkWindowSwap*                           `<leader>yw`
 Mark current window to be swapped. If the mark is already set to another
 window, update the mark to the new window.
+Note: This default mapping is deprecated. You'll have to put it in your .vimrc
+yourself if you want it to keep working in the future.
 
 *WindowSwap#DoWindowSwap*                             `<leader>pw`
 Swap marked window with currently active window. If no mark is set, the user
 is chastised accordingly.
+Note: This default mapping is deprecated. You'll have to put it in your .vimrc
+yourself if you want it to keep working in the future.
 
 =============================================================================
 4. OPTIONS ~
