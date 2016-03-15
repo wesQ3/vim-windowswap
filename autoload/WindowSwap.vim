@@ -1,9 +1,9 @@
 " WindowSwap!
 
-let s:markedWinNum = 0
+let s:markedWinNum = []
 
 function! WindowSwap#MarkWindowSwap()
-   call WindowSwap#SetMarkedWindowNum( winnr() )
+   call WindowSwap#SetMarkedWindowNum( tabpagenr(), winnr() )
 endfunction
 
 function! WindowSwap#DoWindowSwap()
@@ -12,14 +12,18 @@ function! WindowSwap#DoWindowSwap()
       return
    endif
    "Mark destination
+   let curTab = tabpagenr()
    let curNum = winnr()
    let curBuf = bufnr( "%" )
-   exe WindowSwap#GetMarkedWindowNum() . "wincmd w"
+   let targetWindow = WindowSwap#GetMarkedWindowNum()
+   exe "tabn " . targetWindow[0]
+   exe targetWindow[1] . "wincmd w"
    "Switch to source and shuffle dest->source
    let markedBuf = bufnr( "%" )
    "Hide and open so that we aren't prompted and keep history
    exe 'hide buf' curBuf
    "Switch to dest and shuffle source->dest
+   exe "tabn " . curTab
    exe curNum . "wincmd w"
    "Hide and open so that we aren't prompted and keep history
    exe 'hide buf' markedBuf
@@ -38,16 +42,16 @@ function! WindowSwap#GetMarkedWindowNum()
    return s:markedWinNum
 endfunction
 
-function! WindowSwap#SetMarkedWindowNum(num)
-   let s:markedWinNum = a:num
+function! WindowSwap#SetMarkedWindowNum(tab,win)
+   let s:markedWinNum = [a:tab,a:win]
 endfunction
 
 function! WindowSwap#ClearMarkedWindowNum()
-   let s:markedWinNum = 0
+   let s:markedWinNum = []
 endfunction
 
 function! WindowSwap#HasMarkedWindow()
-   if WindowSwap#GetMarkedWindowNum() == 0
+   if WindowSwap#GetMarkedWindowNum() == []
       return 0
    else
       return 1
