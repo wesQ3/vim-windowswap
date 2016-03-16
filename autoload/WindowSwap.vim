@@ -15,7 +15,7 @@ function! WindowSwap#DoWindowSwap()
    let curTab = tabpagenr()
    let curNum = winnr()
    let curBuf = bufnr( "%" )
-   let targetWindow = WindowSwap#GetMarkedWindowNum()
+   let targetWindow = WindowSwap#GetMarkedWindowTuple()
    exe "tabn " . targetWindow[0]
    exe targetWindow[1] . "wincmd w"
    "Switch to source and shuffle dest->source
@@ -38,7 +38,16 @@ function! WindowSwap#EasyWindowSwap()
    endif
 endfunction
 
+" Deprecated: Only returns the window number for back compat
 function! WindowSwap#GetMarkedWindowNum()
+   if s:markedWinNum == []
+      return 0
+   else
+      return s:markedWinNum[1]
+   endif
+endfunction
+
+function! WindowSwap#GetMarkedWindowTuple()
    return s:markedWinNum
 endfunction
 
@@ -51,7 +60,7 @@ function! WindowSwap#ClearMarkedWindowNum()
 endfunction
 
 function! WindowSwap#HasMarkedWindow()
-   if WindowSwap#GetMarkedWindowNum() == []
+   if s:markedWinNum == []
       return 0
    else
       return 1
