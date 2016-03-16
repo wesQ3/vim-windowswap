@@ -67,6 +67,18 @@ function! WindowSwap#HasMarkedWindow()
    endif
 endfunction
 
+function! WindowSwap#IsCurrentWindowMarked()
+   return WindowSwap#IsWindowMarked(tabpagenr(),winnr())
+endfunction
+
+function! WindowSwap#IsWindowMarked(tab,win)
+  if WindowSwap#HasMarkedWindow() && s:markedWinNum[0] == a:tab && s:markedWinNum[1] == a:win
+      return 1
+   else
+      return 0
+   endif
+endfunction
+
 function! WindowSwap#DeprecationNotice()
    if g:windowswap_mapping_deprecation_notice
       echom "This default mapping is deprecated and will be removed in the future. Please see :help windowswap-functions."
