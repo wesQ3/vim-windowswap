@@ -41,7 +41,7 @@ If all you need to do is swap some windows around, usage is pretty simple:
 That's it!
 
 =============================================================================
-3. KEY MAPPINGS ~
+3. KEY MAPPINGS AND FUNCTIONS ~
                                   *windowswap-keymappings* *windowswap-functions*
 
 First of all, you can prevent these default bindings by setting
@@ -50,6 +50,15 @@ First of all, you can prevent these default bindings by setting
 *WindowSwap#EasyWindowSwap*                           `<leader>ww`
 Mark current window if none is marked, swap current window with marked window
 if mark is currently set. Clears marked window flag after swapping.
+
+*WindowSwap#IsWindowMarked*                           `none`
+Args: (`tabnum`, `winnum`)
+Returns true if the window located at tab number `tabnum` and window number
+`winnum` is currently marked for swapping. Returns false otherwise.
+
+*WindowSwap#IsCurrentWindowMarked*                    `none`
+Returns true if the currently selected window is marked for swapping. Returns
+false otherwise.
 
 *WindowSwap#MarkWindowSwap*                           `<leader>yw`
 Mark current window to be swapped. If the mark is already set to another
