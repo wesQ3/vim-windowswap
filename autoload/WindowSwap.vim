@@ -14,19 +14,23 @@ function! WindowSwap#DoWindowSwap()
    "Mark destination
    let curTab = tabpagenr()
    let curNum = winnr()
+   let curView = winsaveview()
    let curBuf = bufnr( "%" )
    let targetWindow = WindowSwap#GetMarkedWindowTuple()
    exe "tabn " . targetWindow[0]
    exe targetWindow[1] . "wincmd w"
    "Switch to source and shuffle dest->source
+   let markedView = winsaveview()
    let markedBuf = bufnr( "%" )
    "Hide and open so that we aren't prompted and keep history
-   exe 'hide buf' curBuf
+   exe 'hide buf ' . curBuf
+   call winrestview(curView)
    "Switch to dest and shuffle source->dest
    exe "tabn " . curTab
    exe curNum . "wincmd w"
    "Hide and open so that we aren't prompted and keep history
-   exe 'hide buf' markedBuf
+   exe 'hide buf ' . markedBuf
+   call winrestview(markedView)
    call WindowSwap#ClearMarkedWindowNum()
 endfunction
 
@@ -95,4 +99,3 @@ function! WindowSwap#DeprecatedDo()
    call WindowSwap#DeprecationNotice()
    call WindowSwap#DoWindowSwap()
 endfunction
-
