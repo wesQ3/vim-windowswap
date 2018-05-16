@@ -86,7 +86,7 @@ yourself if you want it to keep working in the future:
 Allow WindowSwap to map its default keys. Set to `0` to prevent any key
 mappings.
 
-*g:windowswap_mapping_deprecation_notice*             default: `0`
+*g:windowswap_mapping_deprecation_notice*             default: `1`
 Allow deprecation notices upon using deprecated default bindings.
 
  vim: set expandtab sts=2 ts=2 sw=2 tw=78 ft=help norl:
